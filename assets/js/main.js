@@ -301,7 +301,17 @@
       }
 
       if (!nom || !nom.value.trim()) setError(nom, 'Nom et prénom requis.');
-      if (!tel || !tel.value.trim()) setError(tel, 'Numéro de téléphone requis.');
+      if (!tel || !tel.value.trim()) {
+        setError(tel, 'Numéro de téléphone requis.');
+      } else if (!/^[0-9+().\s-]{8,20}$/.test(tel.value.trim())) {
+        setError(tel, 'Format de téléphone invalide.');
+      }
+
+      const email = document.getElementById('resa-email');
+      if (email && email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        setError(email, 'Adresse e-mail invalide.');
+      }
+
       if (date) {
         const check = checkDateValidity(date.value);
         if (!check.ok) setError(date, check.msg);

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.vercel/
+Disallow: /vercel.json
+Disallow: /.htaccess

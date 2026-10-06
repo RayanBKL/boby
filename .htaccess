@@ -20,6 +20,24 @@ RewriteRule ^(histoire|chef|le-chef)(\.html)?$ /#histoire [R=301,NE,L]
 RewriteRule ^galerie(\.html)?$ /#galerie [R=301,NE,L]
 RewriteRule ^reservation(\.html)?$ /#reservation [R=301,NE,L]
 
+# Interdire le listage des répertoires (Directory Browsing)
+Options -Indexes
+
+# Bloquer l'accès aux fichiers et dossiers sensibles (.git, .env, .htaccess, vercel.json, etc.)
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
+
+<FilesMatch "^(vercel\.json|\.gitignore|\.env.*|\.git.*)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
 # Sécurité & Headers (OWASP Hardening)
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
@@ -27,7 +45,7 @@ RewriteRule ^reservation(\.html)?$ /#reservation [R=301,NE,L]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.google.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; frame-src 'self' https://www.google.com https://maps.google.com; connect-src 'self';"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.google.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; connect-src 'self';"
 </IfModule>
 
 # Compression GZIP
