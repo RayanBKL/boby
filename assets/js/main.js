@@ -326,8 +326,19 @@
 
         const successBox = document.createElement('div');
         successBox.className = 'resa-confirmation-box';
-        successBox.style.cssText = 'background: rgba(74,124,142,0.25); border: 1px solid var(--sea-light); color: var(--sand); padding: 20px 24px; border-radius: 4px; margin-top: 24px; text-align: center; font-size: 0.95rem; line-height: 1.6;';
-        successBox.innerHTML = `<strong>Merci ${nom.value.trim()} !</strong><br>Votre demande pour <strong>${couverts.value}</strong> le <strong>${date.value}</strong> à <strong>${heure.value}</strong> a été transmise au restaurant.<br><span style="font-size: 0.82rem; opacity: 0.85;">Confirmation directe par SMS/Appel au ${tel.value.trim()}.</span>`;
+        function escapeHTML(str) {
+          const div = document.createElement('div');
+          div.textContent = str || '';
+          return div.innerHTML;
+        }
+
+        const safeNom = escapeHTML(nom.value.trim());
+        const safeTel = escapeHTML(tel.value.trim());
+        const safeCouverts = escapeHTML(couverts.value);
+        const safeDate = escapeHTML(date.value);
+        const safeHeure = escapeHTML(heure.value);
+
+        successBox.innerHTML = `<strong>Merci ${safeNom} !</strong><br>Votre demande pour <strong>${safeCouverts}</strong> le <strong>${safeDate}</strong> à <strong>${safeHeure}</strong> a été transmise au restaurant.<br><span style="font-size: 0.82rem; opacity: 0.85;">Confirmation directe par SMS/Appel au ${safeTel}.</span>`;
 
         form.appendChild(successBox);
 
