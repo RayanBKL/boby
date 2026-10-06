@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant BOBY — Alexandre Spinelli | Bistronomie en Provence, La Londe-les-Maures</title>
+  <meta name="description" content="Restaurant BOBY à La Londe-les-Maures. Bistronomie provençale contemporaine par le Chef Alexandre Spinelli. Mentionné au Guide MICHELIN 2026. 30 couverts intimes à La Baie des Isles.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Restaurant BOBY — Alexandre Spinelli">
+  <meta property="og:description" content="Bistronomie provençale contemporaine à La Londe-les-Maures par le Chef Alexandre Spinelli.">
+  <meta property="og:image" content="boby.jpg">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo-detoure-crop.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Restaurant BOBY",
+    "image": "assets/img/boby-michelin-oeuf.jpg",
+    "telephone": "+33483690849",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "150 Rue du Forum, La Baie des Isles",
+      "addressLocality": "La Londe-les-Maures",
+      "postalCode": "83250",
+      "addressRegion": "Var",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.1175109,
+      "longitude": 6.2420214
+    },
+    "servesCuisine": ["Bistronomie", "Provençale", "Méditerranéenne"],
+    "priceRange": "€€",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "223",
+      "bestRating": "5"
+    },
+    "review": {
+      "@type": "Review",
+      "author": {
+        "@type": "Organization",
+        "name": "Guide MICHELIN France"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "À deux cents mètres des plages, sur une placette animée, cette petite adresse doit son enseigne au surnom du patron. Professionnel aguerri, Boby signe seul une ardoise de trois choix, troussés au gré du marché : une cuisine dans l'air du temps et pleine de goût. Cadre contemporain et coloré, service attentif."
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Friday", "Saturday", "Sunday"],
+        "opens": "12:00",
+        "closes": "14:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Friday", "Saturday", "Sunday"],
+        "opens": "19:30",
+        "closes": "22:00"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts : Fraunces (titres d'auteur bistronomique) + Plus Jakarta Sans (corps moderne) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css?v=3.2">
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER — Navigation principale épurée
+  ============================================================ -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="header-logo" aria-label="Restaurant BOBY — Accueil">
+        <img src="assets/img/boby-logo-light.png" alt="Restaurant BOBY" style="height: 44px; width: auto; display: block;">
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="#" id="nav-accueil" class="nav-link is-active">Accueil</a></li>
+          <li><a href="#carte" class="nav-link">La Carte</a></li>
+          <li><a href="#histoire" class="nav-link">Le Chef</a></li>
+          <li><a href="#galerie" class="nav-link">Galerie</a></li>
+          <li><a href="#reservation" class="nav-link">Accès & Réservations</a></li>
+        </ul>
+      </nav>
+
+      <a href="#reservation" class="btn-reserve-header">Réserver une table</a>
+
+      <button class="burger-btn" id="burger-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Mobile Plein Écran Tactile -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul class="mobile-nav-list">
+      <li><a href="#" class="mobile-nav-link">Accueil</a></li>
+      <li><a href="#carte" class="mobile-nav-link">La Carte & Menus</a></li>
+      <li><a href="#histoire" class="mobile-nav-link">Alexandre Spinelli</a></li>
+      <li><a href="#galerie" class="mobile-nav-link">Galerie Photographique</a></li>
+      <li><a href="#reservation" class="mobile-nav-link">Réservations & Accès</a></li>
+      <li><a href="tel:0483690849" class="mobile-nav-cta">04 83 69 08 49</a></li>
+    </ul>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ==========================================================
+         VUE 1 : ACCUEIL (#page-accueil)
+    ========================================================== -->
+    <div class="spa-page active" id="page-accueil">
+
+      <!-- HERO IMMERSIF AVEC LE LOGO OFFICIEL FOURNI PAR LE CLIENT -->
+      <section class="hero" id="hero" aria-label="Restaurant BOBY">
+        <div class="hero-grain"></div>
+
+        <div class="hero-logo-wrap" id="hero-logo-wrap">
+          <img src="assets/img/boby-logo-light.png" alt="Restaurant BOBY par Alexandre Spinelli" class="hero-logo-img">
+        </div>
+
+        <div class="hero-cta-wrap" id="hero-cta-wrap">
+          <p class="hero-tagline">Bistronomie en Provence · La Baie des Isles</p>
+          <a href="#reservation" class="hero-cta">Réserver une table</a>
+        </div>
+      </section>
+
+      <!-- INTRO ÉPURÉE -->
+      <section class="section-intro" aria-label="Philosophie">
+        <div class="intro-inner">
+          <h2 class="intro-title">Une cuisine de marché sincère à La Baie des Isles.</h2>
+          <p class="intro-text">
+            À deux cents mètres des plages à La Londe-les-Maures, le <strong>Restaurant BOBY</strong> propose une ardoise courte guidée par les arrivages du jour. Le Chef <strong>Alexandre Spinelli</strong> y travaille les poissons de la pêche locale, les légumes de saison et les produits du terroir varois.
+          </p>
+          <div style="margin-top: 36px;">
+            <span style="font-family: var(--font-script); font-size: 2.2rem; color: var(--rosee); display: block;">Alexandre Spinelli</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- LE CHEF TEASER -->
+      <section class="section-chef" aria-label="Le Chef">
+        <div class="chef-grid">
+          <div class="chef-photo-frame">
+            <img src="assets/img/boby-photo3.jpg" alt="Paleron de bœuf confit par le Chef Alexandre Spinelli" class="chef-photo" loading="lazy">
+            <div class="chef-photo-caption">Paleron de bœuf confit · Ardoise du Chef</div>
+          </div>
+          <div class="chef-content">
+            <h2 class="chef-title">30 couverts, en salle ou en terrasse.</h2>
+            <p style="font-size: 1rem; line-height: 1.8; color: rgba(13,27,42,0.85); margin-bottom: 24px;">
+              Une capacité volontairement limitée à une trentaine de couverts par service, pour garantir une cuisine fraîche préparée à la minute et un accueil attentionné.
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.75; color: rgba(13,27,42,0.75); margin-bottom: 32px;">
+              <em>« Travailler une carte courte me permet de choisir chaque matin les meilleurs produits chez nos maraîchers et pêcheurs du coin. »</em>
+            </p>
+            <a href="#histoire" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 500; color: var(--deep); border-bottom: 1.5px solid var(--rosee); padding-bottom: 4px;">
+              En savoir plus sur la maison →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARTE TEASER (PLATS RÉELS BOBY) -->
+      <section class="section-carte" aria-label="La Carte">
+        <div class="carte-header">
+          <h2 style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); color: var(--sand); font-weight: 300; margin-bottom: 12px;">
+            La Carte du Moment
+          </h2>
+          <p class="carte-note">
+            Une cuisine de saison fraîche et sincère signée Alexandre Spinelli. Menu à 49 € (entrée, plat, dessert) ou à la carte.
+          </p>
+        </div>
+
+        <div class="carte-body">
+          <div class="carte-categorie">
+            <div class="plats-list">
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Œuf mollet frit</span>
+                  <span class="plat-prix">15 €</span>
+                </div>
+                <span class="plat-desc">Mimosas au citron vert, syphon parmesan et pain grillé</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Paleron de bœuf confit</span>
+                  <span class="plat-prix">28 €</span>
+                </div>
+                <span class="plat-desc">Bouillon de tomates caramélisées – tomate travaillée dans l'esprit d'une provençale – sauce choron</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Espadon mariné mi-cuit</span>
+                  <span class="plat-prix">29 €</span>
+                </div>
+                <span class="plat-desc">Focaccia, petits légumes, aïoli</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Finger chocolat</span>
+                  <span class="plat-prix">12 €</span>
+                </div>
+                <span class="plat-desc">Biscuit spéculoos, caramel beurre salé, ganache chocolat noir, ganache chocolat au lait fève tonka, brisures cacahuètes</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 48px;">
+            <a href="#carte" style="display: inline-block; padding: 14px 40px; border: 1.5px solid var(--sand); color: var(--sand); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;">
+              Consulter toute la Carte & Menus →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERIE TEASER (PHOTOS RÉELLES) -->
+      <section class="section-galerie" aria-label="Galerie">
+        <div class="galerie-header">
+          <h2 class="galerie-title">Les Assiettes de la Maison</h2>
+        </div>
+
+        <div class="galerie-layout">
+          <div class="galerie-item galerie-item--tall">
+            <img src="assets/img/boby-michelin-oeuf.jpg" alt="Œuf mollet frit au Restaurant BOBY" class="galerie-img" loading="lazy">
+            <div class="galerie-caption">Œuf mollet frit, mimosas au citron vert & parmesan · Guide Michelin</div>
+          </div>
+          <div class="galerie-item">
+            <img src="assets/img/boby-lieu-noir.jpg" alt="Brandade de lieu noir poché au citron vert" class="galerie-img" loading="lazy">
+            <div class="galerie-caption">Brandade de lieu noir poché au citron vert & légumes de saison</div>
+          </div>
+          <div class="galerie-item">
+            <img src="assets/img/boby-michelin-paleron.jpg" alt="Paleron de bœuf confit au Restaurant BOBY" class="galerie-img" loading="lazy">
+            <div class="galerie-caption">Paleron de bœuf confit & bouillon de tomates caramélisées · Guide Michelin</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#galerie" style="display: inline-block; color: var(--sea-light); font-size: 0.9rem; border-bottom: 1px solid rgba(107,163,181,0.4); padding-bottom: 3px;">
+            Voir toutes les photographies de la maison →
+          </a>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           SECTION RECONNAISSANCE & AVIS GOOGLE MAPS
+      ========================================================== -->
+      <section class="section-avis" aria-label="Reconnaissance & Avis">
+        <div class="avis-container">
+          
+          <!-- EN-TÊTE ÉDITORIAL -->
+          <div class="avis-editorial-header">
+            <span class="avis-eyebrow">La Maison dans la Presse & Chez nos Hôtes</span>
+            <h2 class="avis-main-title">Une table distinguée par le Guide MICHELIN et plébiscitée par nos clients.</h2>
+          </div>
+
+          <!-- CARTE MICHELIN OFFICIELLE HAUTE FACTURE -->
+          <div class="michelin-guide-card">
+            <div class="michelin-guide-badge">
+              <span class="michelin-badge-year">2026</span>
+              <span class="michelin-badge-title">MICHELIN</span>
+              <span class="michelin-badge-sub">GUIDE</span>
+            </div>
+            <div class="michelin-guide-content">
+              <div class="michelin-guide-source">
+                <span>Guide MICHELIN France · Sélection Officielle</span>
+                <a href="https://guide.michelin.com/fr/fr/provence-alpes-cote-dazur/la-londe-les-maures_1506094/restaurant/boby" target="_blank" rel="noopener noreferrer" class="michelin-guide-link">Consulter sur guide.michelin.com ↗</a>
+              </div>
+              <blockquote class="michelin-guide-quote">
+                « À deux cents mètres des plages, sur une placette animée, cette petite adresse doit son enseigne au surnom du patron. Professionnel aguerri, Boby signe seul une ardoise de trois choix, troussés au gré du marché : une cuisine dans l'air du temps et pleine de goût. Cadre contemporain et coloré, service attentif. »
+              </blockquote>
+              <div class="michelin-guide-author">— L'Avis officiel de l'Inspecteur du Guide MICHELIN</div>
+            </div>
+          </div>
+
+          <!-- SECTION RETOURS CLIENTS GOOGLE MAPS (WIDGET DYNAMIQUE) -->
+          <div class="google-reviews-section">
+            <div class="google-reviews-bar">
+              <div class="google-brand">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                </svg>
+                <span class="google-score-highlight"><strong>4.9</strong> / 5</span>
+                <span class="google-stars-gold">★★★★★</span>
+                <span class="google-total-reviews">(223 avis vérifiés sur Google Maps)</span>
+              </div>
+              <a href="https://www.google.com/maps/place/Restaurant+BOBY/@43.1175109,6.2420214,17z/data=!4m8!3m7!1s0x12c923366cfae7d9:0xe54dcf9c467a1c7c!8m2!3d43.1175109!4d6.2420214!9m1!1b1" target="_blank" rel="noopener noreferrer" class="google-see-all-btn">
+                Consulter tous les avis sur Google Maps ↗
+              </a>
+            </div>
+
+            <!-- GRILLE DES VRAIS AVIS CLIENTS GOOGLE MAPS (SANS BADGE NI WATERMARK) -->
+            <div class="reviews-grid-real">
+
+              <!-- Avis 1 : Martine Domenge Héritier -->
+              <article class="real-review-card">
+                <div>
+                  <div class="review-author-header">
+                    <img src="assets/img/avatars/avatar-martine.png" alt="Domenge Héritier Martine" class="review-author-avatar" width="44" height="44" loading="lazy">
+                    <div class="review-author-info">
+                      <span class="review-author-name">Domenge Héritier Martine</span>
+                      <span class="review-badge-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Avis vérifié Google Maps
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-stars-row">
+                    <span class="review-stars-gold">★★★★★</span>
+                  </div>
+                  <p class="real-review-text">
+                    « Quand on lui a dit que tout était très bon, le chef nous a simplement répondu : "Je cuisine !" Et il a tout dit. Ici, les produits sont cuisinés, les assiettes ont du goût, on sent qu'il y a quelqu'un derrière les fourneaux qui maîtrise ! Merci Chef, continuez à cuisiner ! »
+                  </p>
+                </div>
+                <div class="review-card-footer">
+                  <span>Expérience sur place</span>
+                  <span>Guide Local Google</span>
+                </div>
+              </article>
+
+              <!-- Avis 2 : Laurent Chicot -->
+              <article class="real-review-card">
+                <div>
+                  <div class="review-author-header">
+                    <img src="assets/img/avatars/avatar-laurent.png" alt="Laurent Chicot" class="review-author-avatar" width="44" height="44" loading="lazy">
+                    <div class="review-author-info">
+                      <span class="review-author-name">Laurent Chicot</span>
+                      <span class="review-badge-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Avis vérifié Google Maps
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-stars-row">
+                    <span class="review-stars-gold">★★★★★</span>
+                  </div>
+                  <p class="real-review-text">
+                    « Excellent restaurant que je recommande sans hésitation ! L'accueil est chaleureux et le service particulièrement agréable. Les entrées, les plats et les desserts que nous avons dégustés étaient tous excellents. La qualité des produits est remarquable et se ressent dans chaque assiette. Un grand bravo au chef, digne des plus grands restaurants. »
+                  </p>
+                </div>
+                <div class="review-card-footer">
+                  <span>Visité à La Londe</span>
+                  <span>5 étoiles sur Google</span>
+                </div>
+              </article>
+
+              <!-- Avis 3 : Christine SENGLER -->
+              <article class="real-review-card">
+                <div>
+                  <div class="review-author-header">
+                    <img src="assets/img/avatars/avatar-christine.png" alt="Christine SENGLER" class="review-author-avatar" width="44" height="44" loading="lazy">
+                    <div class="review-author-info">
+                      <span class="review-author-name">Christine SENGLER</span>
+                      <span class="review-badge-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Avis vérifié Google Maps
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-stars-row">
+                    <span class="review-stars-gold">★★★★★</span>
+                  </div>
+                  <p class="real-review-text">
+                    « Il y a bien longtemps que je n'avais pas mangé de tels plats ! De la présentation qui est un régal pour les yeux, au goût sublimé par une cuisine de saison faite avec des produits frais, jusqu'au service digne d'un étoilé. Un sans-faute ! Tout était parfait ! »
+                  </p>
+                </div>
+                <div class="review-card-footer">
+                  <span>Expérience en salle</span>
+                  <span>5 étoiles sur Google</span>
+                </div>
+              </article>
+
+              <!-- Avis 4 : Philippe Repetylo -->
+              <article class="real-review-card">
+                <div>
+                  <div class="review-author-header">
+                    <img src="assets/img/avatars/avatar-philippe.png" alt="Philippe Repetylo" class="review-author-avatar" width="44" height="44" loading="lazy">
+                    <div class="review-author-info">
+                      <span class="review-author-name">Philippe Repetylo</span>
+                      <span class="review-badge-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Avis vérifié Google Maps
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-stars-row">
+                    <span class="review-stars-gold">★★★★★</span>
+                  </div>
+                  <p class="real-review-text">
+                    « Le restaurant qui fait la différence. Tout est excellent. Le service irréprochable, le Chef au Top. Si vous voulez bousculer vos papilles, vous serez servis. De l'entrée au plat qui vous ravit, le dessert est la cerise qui nous manquait à tous. Juste Bravo à Vous Deux. »
+                  </p>
+                </div>
+                <div class="review-card-footer">
+                  <span>Expérience sur place</span>
+                  <span>Guide Local Google</span>
+                </div>
+              </article>
+
+              <!-- Avis 5 : Frédéric Binet -->
+              <article class="real-review-card">
+                <div>
+                  <div class="review-author-header">
+                    <img src="assets/img/avatars/avatar-frederic.png" alt="Frédéric Binet" class="review-author-avatar" width="44" height="44" loading="lazy">
+                    <div class="review-author-info">
+                      <span class="review-author-name">Frédéric Binet</span>
+                      <span class="review-badge-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Avis vérifié Google Maps
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-stars-row">
+                    <span class="review-stars-gold">★★★★★</span>
+                  </div>
+                  <p class="real-review-text">
+                    « C'est vraiment très très bon, carte simple, 3 entrées, 3 plats, 3 desserts, mais tout est raffiné et très bien présenté. Vous pouvez y aller les yeux fermés. Merci chef pour cet excellent repas. »
+                  </p>
+                </div>
+                <div class="review-card-footer">
+                  <span>Visité à La Londe</span>
+                  <span>5 étoiles sur Google</span>
+                </div>
+              </article>
+
+              <!-- Avis 6 : Julie -->
+              <article class="real-review-card">
+                <div>
+                  <div class="review-author-header">
+                    <img src="assets/img/avatars/avatar-julie.png" alt="Julie" class="review-author-avatar" width="44" height="44" loading="lazy">
+                    <div class="review-author-info">
+                      <span class="review-author-name">Julie</span>
+                      <span class="review-badge-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Avis vérifié Google Maps
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-stars-row">
+                    <span class="review-stars-gold">★★★★★</span>
+                  </div>
+                  <p class="real-review-text">
+                    « Tout était parfait du début à la fin. Gentillesse, qualité, saveurs. Et le petit plus qui fut fort appréciable... ils cherchent à nous mettre dans les meilleures dispositions pour apprécier ces beaux et bons plats. »
+                  </p>
+                </div>
+                <div class="review-card-footer">
+                  <span>Expérience sur place</span>
+                  <span>5 étoiles sur Google</span>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==========================================================
+         VUE 2 : LA CARTE (#page-carte)
+    ========================================================== -->
+    <div class="spa-page" id="page-carte">
+      <header class="page-header">
+        <h1 class="page-header-title">La Carte & Les Menus</h1>
+        <p style="font-size: 0.95rem; color: var(--muted); margin-top: 16px; max-width: 65ch; line-height: 1.7;">
+          Chaque semaine, le Chef <strong>Alexandre Spinelli</strong> réinvente ses assiettes en résonance avec la criée méditerranéenne et les récoltes des maraîchers varois. Tous nos plats sont préparés à la minute à partir de produits frais et bruts.
+        </p>
+      </header>
+
+      <section class="section-carte" style="padding-top: 0;">
+        <div class="carte-body">
+
+          <!-- LES ENTRÉES -->
+          <div class="carte-categorie">
+            <h2 class="carte-cat-title">Entrées</h2>
+            <div class="plats-list">
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Œuf mollet frit</span>
+                  <span class="plat-prix">15 €</span>
+                </div>
+                <span class="plat-desc">Mimosas au citron vert, syphon parmesan et pain grillé</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Tomates crues / cuites / confites</span>
+                  <span class="plat-prix">14 €</span>
+                </div>
+                <span class="plat-desc">Vinaigrette de tomate, huile verveine / vanille, ricotta marinée aux zestes de citron</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Saumon gravlax</span>
+                  <span class="plat-prix">16 €</span>
+                </div>
+                <span class="plat-desc">Melon cru et cuit, brioche toastée</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carte-divider"></div>
+
+          <!-- LES PLATS -->
+          <div class="carte-categorie">
+            <h2 class="carte-cat-title">Plats</h2>
+            <div class="plats-list">
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Paleron de bœuf confit</span>
+                  <span class="plat-prix">28 €</span>
+                </div>
+                <span class="plat-desc">Bouillon de tomates caramélisées – tomate travaillée dans l'esprit d'une provençale – sauce choron</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Espadon mariné mi-cuit</span>
+                  <span class="plat-prix">29 €</span>
+                </div>
+                <span class="plat-desc">Focaccia, petits légumes, aïoli</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Brandade de lieu noir poché au citron vert</span>
+                  <span class="plat-prix">28 €</span>
+                </div>
+                <span class="plat-desc">Émulsion au curry vert</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carte-divider"></div>
+
+          <!-- FROMAGE -->
+          <div class="carte-categorie">
+            <h2 class="carte-cat-title">Fromage</h2>
+            <div class="plats-list">
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Chèvre cendré crémeux</span>
+                  <span class="plat-prix">11 €</span>
+                </div>
+                <span class="plat-desc">Confiture d'olives</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carte-divider"></div>
+
+          <!-- LES DESSERTS -->
+          <div class="carte-categorie">
+            <h2 class="carte-cat-title">Desserts</h2>
+            <div class="plats-list">
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Abricots rôtis</span>
+                  <span class="plat-prix">12 €</span>
+                </div>
+                <span class="plat-desc">Crumble, jus verveine / abricot, mousse de fromage blanc à la vanille</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Finger chocolat</span>
+                  <span class="plat-prix">12 €</span>
+                </div>
+                <span class="plat-desc">Biscuit spéculoos, caramel beurre salé, ganache chocolat noir, ganache chocolat au lait fève tonka, brisures cacahuètes</span>
+              </div>
+              <div class="plat-item">
+                <div class="plat-header">
+                  <span class="plat-nom">Pain perdu</span>
+                  <span class="plat-prix">12 €</span>
+                </div>
+                <span class="plat-desc">Crème fouettée à la vanille – pécans caramélisés et crème de noisette grillée</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORMULE DU CHEF : MENU À 49 € -->
+          <div class="carte-formule-box">
+            <h3 class="carte-formule-title">Menu BOBY</h3>
+            <div class="carte-formule-price">49 €</div>
+            <div class="carte-formule-desc">Entrée · Plat · Dessert</div>
+            <p class="carte-formule-note">Au choix sur l'ensemble de la carte</p>
+          </div>
+
+          <div style="text-align: center; margin-top: 64px; padding: 48px 24px; background: var(--navy); border-radius: 4px;">
+            <h3 style="font-family: var(--font-display); font-size: 2rem; color: var(--sand); margin-bottom: 12px;">Réservez votre table bistronomique</h3>
+            <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 24px;">30 couverts intimes. Réservation fortement conseillée.</p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <a href="#reservation" style="padding: 13px 36px; background: var(--rosee); color: var(--white); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; border-radius: 2px;">Réserver en ligne</a>
+              <a href="tel:0483690849" style="padding: 13px 32px; border: 1px solid var(--sand); color: var(--sand); font-size: 0.85rem; letter-spacing: 0.06em; border-radius: 2px;">04 83 69 08 49</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================
+         VUE 3 : LE CHEF & HISTOIRE (#page-histoire)
+    ========================================================== -->
+    <div class="spa-page" id="page-histoire">
+      <header class="page-header">
+        <h1 class="page-header-title">Alexandre Spinelli</h1>
+        <p style="font-size: 0.95rem; color: var(--muted); margin-top: 16px; max-width: 65ch; line-height: 1.7;">
+          Chef patron du Restaurant BOBY depuis son ouverture, Alexandre Spinelli cuisine seul une ardoise courte renouvelée chaque matin au gré du marché.
+        </p>
+      </header>
+
+      <section class="section-chef" style="background: var(--linen); color: var(--deep); padding: 80px 0;">
+        <div class="chef-grid">
+          <div class="chef-photo-frame">
+            <img src="assets/img/boby-lieu-noir.jpg" alt="Brandade de lieu noir poché au citron vert par le Chef Alexandre Spinelli" class="chef-photo" loading="lazy">
+            <div class="chef-photo-caption">Brandade de lieu noir poché au citron vert · Cuisine du Chef Alexandre Spinelli</div>
+          </div>
+          <div>
+            <h2 style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 24px; color: var(--deep); font-weight: 300;">
+              Sublimer la Provence sans artifice.
+            </h2>
+            <p style="font-size: 0.98rem; line-height: 1.8; color: rgba(13,27,42,0.85); margin-bottom: 18px;">
+              Natif du littoral varois, <strong>Alexandre Spinelli</strong> a forgé sa rigueur culinaire au contact de belles maisons avant de revenir sur les terres de son enfance pour créer un lieu à son image : libre, généreux et profondément enraciné dans son terroir.
+            </p>
+            <p style="font-size: 0.98rem; line-height: 1.8; color: rgba(13,27,42,0.85); margin-bottom: 28px;">
+              En ouvrant le <strong>Restaurant BOBY</strong> au cœur de La Baie des Isles à La Londe-les-Maures, il choisit délibérément la jauge intimiste de <strong>30 couverts</strong>. Ce format à taille humaine lui permet de travailler chaque poisson à la minute, d'ajuster ses sauces avec une minutie absolue et d'échanger directement avec chaque hôte.
+            </p>
+
+            <div style="background: rgba(13,27,42,0.06); padding: 22px 26px; border-left: 3px solid var(--rosee); margin-bottom: 32px;">
+              <p style="font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: var(--deep); line-height: 1.5;">
+                « Le Guide MICHELIN France 2026 consacre cette cuisine de bon sens : des produits de proximité d'une fraîcheur éclatante, traités avec le respect et la justesse qui font les grandes tables. »
+              </p>
+            </div>
+
+            <a href="#carte" style="display: inline-block; padding: 13px 32px; background: var(--deep); color: var(--sand); font-size: 0.85rem; letter-spacing: 0.08em; border-radius: 2px;">
+              Découvrir la carte du Chef →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENGAGEMENTS -->
+      <section style="background: var(--deep); padding: 80px 0;">
+        <div style="max-width: var(--max-w); margin: 0 auto; padding: 0 24px;">
+          <div style="text-align: center; max-width: 700px; margin: 0 auto 56px;">
+            <h2 style="font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--sand); font-weight: 300;">
+              Nos Engagements du Quotidien
+            </h2>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;" class="valeurs-grid">
+            <div style="background: var(--navy); padding: 36px 28px; border-radius: 2px;">
+              <div style="font-family: var(--font-display); font-size: 2rem; color: var(--sea-light); margin-bottom: 12px;">01.</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--sand); margin-bottom: 12px;">Criée Locale & Saison</h3>
+              <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.7;">
+                Poissons de petite pêche côtière achetés en direct. Daurades royales, rascasses et poulpes pêchés dans le respect absolu des cycles marins.
+              </p>
+            </div>
+
+            <div style="background: var(--navy); padding: 36px 28px; border-radius: 2px;">
+              <div style="font-family: var(--font-display); font-size: 2rem; color: var(--rosee); margin-bottom: 12px;">02.</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--sand); margin-bottom: 12px;">Maraîchage du Var</h3>
+              <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.7;">
+                Légumes de pleine terre de la plaine des Maures, herbes sauvages cueillies à proximité, agrumes non traités de Hyères et huiles d'olive médaillées.
+              </p>
+            </div>
+
+            <div style="background: var(--navy); padding: 36px 28px; border-radius: 2px;">
+              <div style="font-family: var(--font-display); font-size: 2rem; color: var(--olive-tone); margin-bottom: 12px;">03.</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--sand); margin-bottom: 12px;">30 Couverts Intimes</h3>
+              <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.7;">
+                Nous privilégions le confort acoustique, l'espace entre les tables et la présence du chef auprès des convives. Une vraie maison d'hôtes gourmande.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================
+         VUE 4 : GALERIE (#page-galerie)
+    ========================================================== -->
+    <div class="spa-page" id="page-galerie">
+      <header class="page-header">
+        <h1 class="page-header-title">Galerie Photographique</h1>
+        <p style="font-size: 0.95rem; color: var(--muted); margin-top: 16px; max-width: 65ch; line-height: 1.7;">
+          Photos des plats et de l'ambiance du restaurant. Cliquez sur une image pour l'agrandir.
+        </p>
+      </header>
+
+      <section class="section-galerie" style="padding-top: 0;">
+        <div style="max-width: var(--max-w); margin: 0 auto; padding: 0 24px 60px;">
+          
+          <!-- VRAIES PHOTOS DU RESTAURANT BOBY -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;" class="galerie-grid-complete">
+            
+            <div class="galerie-item" style="grid-column: span 2; aspect-ratio: 16/10;">
+              <img src="assets/img/boby-michelin-oeuf.jpg" alt="Œuf mollet frit au Restaurant BOBY" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Œuf mollet frit, mimosas au citron vert & parmesan</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 4/5;">
+              <img src="assets/img/boby-lieu-noir.jpg" alt="Brandade de lieu noir poché au citron vert" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Brandade de lieu noir poché au citron vert</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-michelin-paleron.jpg" alt="Paleron de bœuf confit" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Paleron de bœuf confit & bouillon de tomates</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-michelin-canard.jpg" alt="Canard rôti et cerises" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Canard rôti aux cerises & pommes de terre</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-michelin-carpaccio.jpg" alt="Tomates travaillées et tuile croustillante" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Tomates travaillées & tuile croustillante</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-michelin-dessert.jpg" alt="Meringue chocolat et glace vanille" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Meringue chocolat & glace vanille</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-cocktail.jpg" alt="Cocktail au bar du Restaurant BOBY" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Cocktail signature & ambiance en salle</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-tacos.jpg" alt="Soirée tapas du mardi" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Tapas du mardi soir</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-cannelloni.jpg" alt="Plat du jour à l'ardoise" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Création du moment à l'ardoise</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-photo1.jpg" alt="Terrasse et extérieur du Restaurant BOBY" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Terrasse extérieure à La Baie des Isles</div>
+            </div>
+
+            <div class="galerie-item" style="aspect-ratio: 1/1;">
+              <img src="assets/img/boby-photo2.jpg" alt="Salle et ambiance intérieure du Restaurant BOBY" class="galerie-img" loading="lazy">
+              <div class="galerie-caption">Salle intérieure contemporaine & climatisée</div>
+            </div>
+
+          </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================
+         VUE 5 : RÉSERVATION & CONTACT (#page-reservation)
+    ========================================================== -->
+    <div class="spa-page" id="page-reservation">
+      <header class="page-header">
+        <h1 class="page-header-title">Réservation & Accès</h1>
+        <p style="font-size: 0.95rem; color: var(--muted); margin-top: 16px; max-width: 65ch; line-height: 1.7;">
+          Une expérience intime de 30 couverts à La Baie des Isles. Pour vous garantir la meilleure table, nous vous conseillons de réserver à l'avance.
+        </p>
+      </header>
+
+      <section class="section-reservation" style="padding-top: 0;">
+        <div class="resa-inner">
+          <div class="resa-tel-bloc">
+            <h2 class="resa-title">Réservation par Téléphone</h2>
+            <p class="resa-subtitle">Confirmation directe avec notre équipe en salle</p>
+            <a href="tel:0483690849" class="resa-tel" aria-label="Appeler le 04 83 69 08 49">04 83 69 08 49</a>
+            <div class="resa-tel-note">Joignable midi et soir aux heures de service</div>
+          </div>
+
+          <div class="resa-sep">
+            <span>OU FORMULAIRE EN LIGNE</span>
+          </div>
+
+          <form class="resa-form" id="resa-form" novalidate>
+            <div class="form-row form-row--half">
+              <div class="form-group">
+                <label for="resa-nom" class="form-label">Nom & Prénom *</label>
+                <input type="text" id="resa-nom" name="nom" class="form-input" placeholder="Ex. Jean Dupont" required autocomplete="name">
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="resa-tel" class="form-label">Téléphone *</label>
+                <input type="tel" id="resa-tel" name="tel" class="form-input" placeholder="Ex. 06 12 34 56 78" required autocomplete="tel">
+                <span class="form-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row form-row--half">
+              <div class="form-group">
+                <label for="resa-email" class="form-label">Adresse e-mail <span class="form-optional">(optionnel)</span></label>
+                <input type="email" id="resa-email" name="email" class="form-input" placeholder="jean.dupont@email.fr" autocomplete="email">
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group form-group--couverts">
+                <label for="resa-couverts" class="form-label">Couverts *</label>
+                <select id="resa-couverts" name="couverts" class="form-input" required>
+                  <option value="" disabled selected>Nombre de personnes</option>
+                  <option value="1 personne">1 personne</option>
+                  <option value="2 personnes">2 personnes</option>
+                  <option value="3 personnes">3 personnes</option>
+                  <option value="4 personnes">4 personnes</option>
+                  <option value="5 personnes">5 personnes</option>
+                  <option value="6 personnes">6 personnes</option>
+                  <option value="7 à 8 personnes">7 à 8 personnes</option>
+                  <option value="Plus de 8">Plus de 8 personnes (sur appel au 04 83 69 08 49)</option>
+                </select>
+                <span class="form-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row form-row--half">
+              <div class="form-group">
+                <label for="resa-date" class="form-label">Date souhaitée *</label>
+                <input type="date" id="resa-date" name="date" class="form-input" required>
+                <span class="form-error"></span>
+                <span style="font-size: 0.75rem; color: var(--rosee); margin-top: 4px;">Fermé le mercredi et le jeudi.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="resa-heure" class="form-label">Service & Heure *</label>
+                <select id="resa-heure" name="heure" class="form-input" required>
+                  <option value="" disabled selected>Créneau horaire</option>
+                  <optgroup label="Déjeuner">
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                  </optgroup>
+                  <optgroup label="Dîner">
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                  </optgroup>
+                </select>
+                <span class="form-error"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="resa-preference" class="form-label">Placement souhaité</label>
+              <select id="resa-preference" name="preference" class="form-input">
+                <option value="Indifférent">Indifférent (au choix du restaurant)</option>
+                <option value="Terrasse ombragée">Terrasse ombragée</option>
+                <option value="Salle climatisée">Salle contemporaine climatisée</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="resa-message" class="form-label">Remarques particulières <span class="form-optional">(allergies, occasion spéciale...)</span></label>
+              <textarea id="resa-message" name="message" class="form-input" rows="3" placeholder="Indiquez vos allergies alimentaires ou préférences éventuelles..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="btn-resa-submit">
+              Confirmer ma demande de réservation
+            </button>
+          </form>
+
+          <!-- CARTE GOOGLE MAPS PRÉCISE RESTAURANT BOBY -->
+          <div style="margin-top: 80px; padding: 40px 32px; background: rgba(13,27,42,0.92); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px;">
+            <h3 style="font-family: var(--font-display); font-size: 2rem; color: var(--sand); margin-bottom: 24px;">Localisation & Accès</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px;" class="acces-grid">
+              <div>
+                <h4 style="font-size: 0.72rem; color: var(--sea-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">Adresse géographique</h4>
+                <p style="font-size: 0.95rem; color: var(--sand); line-height: 1.6;">
+                  <strong>Restaurant BOBY</strong><br>
+                  150 Rue du Forum, La Baie des Isles<br>
+                  83250 La Londe-les-Maures (Var)<br>
+                  <a href="https://www.google.com/maps/place/Restaurant+BOBY/@43.1175109,6.2420214,17z/data=!4m8!3m7!1s0x12c923366cfae7d9:0xe54dcf9c467a1c7c!8m2!3d43.1175109!4d6.2420214!9m1!1b1" target="_blank" rel="noopener noreferrer" style="color: var(--sea-light); font-size: 0.85rem; text-decoration: underline; margin-top: 6px; display: inline-block;">
+                    Ouvrir dans Google Maps ↗
+                  </a>
+                </p>
+              </div>
+
+              <div>
+                <h4 style="font-size: 0.72rem; color: var(--sea-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">Stationnement & Commodités</h4>
+                <p style="font-size: 0.95rem; color: var(--sand); line-height: 1.6;">
+                  ✓ Grand parking gratuit juste devant le restaurant.<br>
+                  ✓ Accès facile de plain-pied PMR.<br>
+                  ✓ À 2 minutes des plages de La Londe.
+                </p>
+              </div>
+            </div>
+
+            <!-- IFRAME GOOGLE MAPS DIRECTEMENT CENTRÉE SUR LE RESTAURANT BOBY -->
+            <div style="border-radius: 4px; overflow: hidden; height: 380px; border: 1px solid rgba(255,255,255,0.12);">
+              <iframe 
+                src="https://maps.google.com/maps?q=Restaurant+BOBY+150+Rue+du+Forum+83250+La+Londe-les-Maures&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Carte d'accès au Restaurant BOBY à La Londe-les-Maures">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER ÉPURÉ & PRESTIGIEUX (SANS SURCHARGE)
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <a href="#" class="footer-logo" aria-label="Restaurant BOBY">
+          <img src="assets/img/boby-logo-light.png" alt="Logo BOBY" style="height: 64px; width: auto; margin-bottom: 12px; display: block;">
+        </a>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 10px; line-height: 1.6;">
+          Bistronomie provençale par <strong>Alexandre Spinelli</strong>.<br>
+          30 couverts intimes à La Baie des Isles.
+        </p>
+        <div style="display: flex; gap: 18px; margin-top: 16px; flex-wrap: wrap;">
+          <a href="https://guide.michelin.com/fr/fr/provence-alpes-cote-dazur/la-londe-les-maures_1506094/restaurant/boby" target="_blank" rel="noopener noreferrer" style="color: var(--sea-light); font-size: 0.82rem; border-bottom: 1px solid rgba(107,163,181,0.3); padding-bottom: 2px;">Sélection Guide MICHELIN 2026 ↗</a>
+          <a href="https://www.google.com/maps/place/Restaurant+BOBY/@43.1175109,6.2420214,17z/data=!4m8!3m7!1s0x12c923366cfae7d9:0xe54dcf9c467a1c7c!8m2!3d43.1175109!4d6.2420214!9m1!1b1" target="_blank" rel="noopener noreferrer" style="color: var(--sand); font-size: 0.82rem; border-bottom: 1px solid rgba(232,223,200,0.3); padding-bottom: 2px;">Avis Google Maps (4.9 ★ · 223 avis) ↗</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--sand); margin-bottom: 16px;">Navigation</h4>
+        <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: var(--muted);">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#carte">La Carte des Saisons</a></li>
+          <li><a href="#histoire">Alexandre Spinelli</a></li>
+          <li><a href="#galerie">Galerie Photos</a></li>
+          <li><a href="#reservation">Réservations & Accès</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--sand); margin-bottom: 16px;">Service</h4>
+        <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.75;">
+          <strong>Vendredi au Mardi :</strong><br>
+          Midi : 12h00 – 14h00<br>
+          Soir : 19h30 – 22h00<br><br>
+          <span style="color: var(--rosee); font-weight: 500;">Fermé le mercredi & jeudi</span>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--sand); margin-bottom: 16px;">Contact</h4>
+        <address style="font-size: 0.85rem; color: var(--muted); line-height: 1.75;">
+          150 Rue du Forum<br>
+          La Baie des Isles<br>
+          83250 La Londe-les-Maures<br><br>
+          <a href="tel:0483690849" style="font-family: var(--font-display); font-size: 1.35rem; color: var(--sand); font-weight: 500; display: inline-block;">04 83 69 08 49</a>
+        </address>
+      </div>
+    </div>
+
+    <div style="max-width: var(--max-w); margin: 0 auto; padding: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.75rem; color: rgba(232,223,200,0.35);">
+      <p>© <span id="footer-year">2026</span> Restaurant BOBY. Tous droits réservés.</p>
+      <p>150 Rue du Forum, 83250 La Londe-les-Maures</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
