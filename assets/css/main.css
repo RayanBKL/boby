@@ -34,7 +34,7 @@
   --dur-mid:     300ms;
   --dur-slow:    600ms;
 
-  --header-h:  72px;
+  --header-h:  92px;
   --max-w:     1200px;
 
   /* Token logo */
@@ -1775,7 +1775,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    RESPONSIVE — Mobile (≤ 600px)
    ================================================================ */
 @media (max-width: 600px) {
-  :root { --header-h: 60px; }
+  :root { --header-h: 76px; }
 
   .header-inner { padding: 0 16px; }
 
@@ -1997,3 +1997,7 @@ h1, h2, h3 { line-height: 1.15; }
   .reviews-grid-real { margin: 0 -24px; padding: 4px 24px 18px; scroll-padding: 0 24px; }
   .reviews-grid-real > .real-review-card { flex-basis: 82%; }
 }
+
+/* Logo du header plus présent */
+.header-logo-img { height: 76px; width: auto; display: block; }
+@media (max-width: 600px) { .header-logo-img { height: 60px; } }
