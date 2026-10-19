@@ -430,6 +430,155 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // 10. HERO — poussière dorée, parallaxe, indication de défilement
+  // ─────────────────────────────────────────────────────────────
+  function initHero() {
+    const hero  = document.getElementById('hero');
+    const stage = document.getElementById('hero-stage');
+    const logo  = document.getElementById('hero-logo-wrap');
+    const cv    = document.getElementById('hero-motes');
+    const cue   = document.getElementById('hero-scroll');
+    if (!hero || !stage) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (cue) {
+      cue.addEventListener('click', () => {
+        const next = hero.nextElementSibling;
+        if (next) next.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+      });
+    }
+    if (reduced) return;
+
+    // Parallaxe : défilement (le bloc remonte et s'efface) + souris (desktop)
+    let px = 0, py = 0, tx = 0, ty = 0, heroVisible = true, raf = 0;
+    function frame() {
+      raf = 0;
+      px += (tx - px) * 0.08;
+      py += (ty - py) * 0.08;
+      const sy = Math.min(window.scrollY, hero.offsetHeight);
+      stage.style.transform = 'translate3d(0,' + (-sy * 0.14).toFixed(1) + 'px,0)';
+      stage.style.opacity = Math.max(0, 1 - sy / (hero.offsetHeight * 0.75)).toFixed(3);
+      if (logo) logo.style.transform = 'translate3d(' + (px * 12).toFixed(2) + 'px,' + (py * 9).toFixed(2) + 'px,0)';
+      if (Math.abs(tx - px) > 0.001 || Math.abs(ty - py) > 0.001) request();
+    }
+    function request() { if (!raf && heroVisible) raf = requestAnimationFrame(frame); }
+    window.addEventListener('scroll', request, { passive: true });
+    if (fine) {
+      hero.addEventListener('mousemove', (e) => {
+        const r = hero.getBoundingClientRect();
+        tx = (e.clientX - r.left) / r.width - 0.5;
+        ty = (e.clientY - r.top) / r.height - 0.5;
+        request();
+      }, { passive: true });
+      hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; request(); });
+    }
+
+    // Poussière de lumière : quelques particules qui montent lentement
+    if (!cv || !cv.getContext) return;
+    const ctx = cv.getContext('2d');
+    let w = 0, h = 0, dpr = 1, motes = [], running = false;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = hero.clientWidth; h = hero.clientHeight;
+      cv.width = w * dpr; cv.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = w < 600 ? 26 : 54;
+      motes = Array.from({ length: n }, () => spawn(true));
+    }
+    function spawn(anywhere) {
+      return {
+        x: Math.random() * w,
+        y: anywhere ? Math.random() * h : h + 10,
+        r: 0.6 + Math.random() * 1.8,
+        v: 6 + Math.random() * 14,
+        sway: 8 + Math.random() * 18,
+        ph: Math.random() * 6.28,
+        tw: 0.4 + Math.random() * 0.9,
+        a: 0.15 + Math.random() * 0.5
+      };
+    }
+    let last = 0;
+    function tick(t) {
+      if (!running) return;
+      const dt = Math.min((t - last) / 1000 || 0.016, 0.05);
+      last = t;
+      ctx.clearRect(0, 0, w, h);
+      for (const m of motes) {
+        m.y -= m.v * dt;
+        m.ph += m.tw * dt;
+        if (m.y < -10) Object.assign(m, spawn(false));
+        const x = m.x + Math.sin(m.ph) * m.sway;
+        const edge = Math.min(1, Math.max(0, m.y / (h * 0.25)), (h - m.y) / (h * 0.15) + 0.3);
+        ctx.globalAlpha = m.a * (0.55 + 0.45 * Math.sin(m.ph * 2.1)) * edge;
+        ctx.fillStyle = '#F0E2C0';
+        ctx.beginPath();
+        ctx.arc(x, m.y, m.r, 0, 6.2832);
+        ctx.fill();
+      }
+      requestAnimationFrame(tick);
+    }
+    function setRunning(on) {
+      if (on && !running) { running = true; last = performance.now(); requestAnimationFrame(tick); }
+      else if (!on) running = false;
+    }
+    resize();
+    let rt;
+    window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 200); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((en) => {
+        heroVisible = en[0].isIntersecting;
+        setRunning(heroVisible && !document.hidden);
+      }).observe(hero);
+    } else setRunning(true);
+    document.addEventListener('visibilitychange', () => setRunning(heroVisible && !document.hidden));
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // 11. BARRE D'ACTIONS MOBILE (visible après le hero)
+  // ─────────────────────────────────────────────────────────────
+  function initMobileBar() {
+    const bar = document.getElementById('mobile-bar');
+    if (!bar) return;
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const menuOpen = document.getElementById('mobile-menu')?.getAttribute('aria-hidden') === 'false';
+      bar.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.6 && !menuOpen);
+    }
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    document.getElementById('burger-btn')?.addEventListener('click', () => setTimeout(update, 0));
+    window.addEventListener('hashchange', () => setTimeout(update, 50));
+    update();
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // 12. APPARITIONS AU DÉFILEMENT (sobres, retirées une fois jouées)
+  // ─────────────────────────────────────────────────────────────
+  function initReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const sel = '.intro-title, .intro-text, .chef-photo-frame, .chef-content, .carte-header, .plat-item, .galerie-header, .galerie-item, .avis-editorial-header, .michelin-guide-card, .page-header, .resa-form';
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        io.unobserve(el);
+        el.classList.add('is-in');
+        setTimeout(() => el.classList.remove('reveal', 'is-in'), 1400);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll(sel).forEach((el) => {
+      const idx = Array.prototype.indexOf.call(el.parentElement.children, el);
+      el.style.setProperty('--d', Math.min(idx, 4) * 90 + 'ms');
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
+
   // DÉMARRAGE GLOBAL
   document.addEventListener('DOMContentLoaded', () => {
     initRouting();
@@ -439,6 +588,9 @@
     initReservation();
     initGalleryLightbox();
     initYear();
+    initHero();
+    initMobileBar();
+    initReveal();
   });
 
 })();

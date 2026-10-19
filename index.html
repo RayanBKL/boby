@@ -79,7 +79,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/main.css?v=3.3">
+  <link rel="stylesheet" href="assets/css/main.css?v=3.4">
 </head>
 <body>
 
@@ -133,15 +133,33 @@
 
       <!-- HERO IMMERSIF AVEC LE LOGO OFFICIEL FOURNI PAR LE CLIENT -->
       <section class="hero" id="hero" aria-label="Restaurant BOBY">
+        <div class="hero-light hero-light--a" aria-hidden="true"></div>
+        <div class="hero-light hero-light--b" aria-hidden="true"></div>
         <div class="hero-grain"></div>
+        <canvas class="hero-motes" id="hero-motes" aria-hidden="true"></canvas>
 
-        <div class="hero-logo-wrap" id="hero-logo-wrap">
-          <img src="assets/img/boby-logo-light.png" alt="Restaurant BOBY par Alexandre Spinelli" class="hero-logo-img">
+        <div class="hero-stage" id="hero-stage">
+          <h1 class="visually-hidden">Restaurant BOBY par Alexandre Spinelli, bistronomie à La Londe-les-Maures</h1>
+          <div class="hero-logo-wrap" id="hero-logo-wrap">
+            <div class="logo-art" role="img" aria-label="Restaurant BOBY par Alexandre Spinelli">
+              <div class="logo-slice logo-slice--mark"><img src="assets/img/boby-logo-light.png" alt="" width="731" height="1097" decoding="async" fetchpriority="high"></div>
+              <div class="logo-slice logo-slice--name"><img src="assets/img/boby-logo-light.png" alt="" aria-hidden="true"></div>
+              <div class="logo-slice logo-slice--type"><img src="assets/img/boby-logo-light.png" alt="" aria-hidden="true"></div>
+              <div class="logo-slice logo-slice--sign"><img src="assets/img/boby-logo-light.png" alt="" aria-hidden="true"></div>
+              <div class="logo-shine" aria-hidden="true"><i></i></div>
+            </div>
+          </div>
+
+          <div class="hero-cta-wrap" id="hero-cta-wrap">
+            <a href="#reservation" class="hero-cta hero-cta--main">Réserver une table</a>
+            <a href="tel:0483690849" class="hero-cta hero-cta--call" aria-label="Appeler le restaurant au 04 83 69 08 49">Appeler · 04 83 69 08 49</a>
+          </div>
         </div>
 
-        <div class="hero-cta-wrap" id="hero-cta-wrap">
-          <a href="#reservation" class="hero-cta">Réserver une table</a>
-        </div>
+        <button type="button" class="hero-scroll" id="hero-scroll" aria-label="Découvrir la maison">
+          <span class="hero-scroll-label">Défiler</span>
+          <span class="hero-scroll-line" aria-hidden="true"></span>
+        </button>
       </section>
 
       <!-- INTRO ÉPURÉE -->
@@ -990,6 +1008,12 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <!-- Barre d'actions mobile -->
+  <div class="mobile-bar" id="mobile-bar">
+    <a href="tel:0483690849" class="mobile-bar-btn mobile-bar-btn--call">Appeler</a>
+    <a href="#reservation" class="mobile-bar-btn mobile-bar-btn--resa">Réserver</a>
+  </div>
+
+  <script src="assets/js/main.js?v=3.4"></script>
 </body>
 </html>

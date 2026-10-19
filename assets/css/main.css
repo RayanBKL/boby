@@ -479,6 +479,7 @@ address { font-style: normal; }
    ================================================================ */
 .hero {
   position: relative;
+  min-height: 100vh;
   min-height: 100svh;
   background: var(--deep);
   display: flex;
@@ -530,27 +531,6 @@ address { font-style: normal; }
   box-shadow: none !important;
 }
 
-.hero-logo-wrap img,
-.hero-logo-wrap .hero-logo-img {
-  display: block;
-  max-height: min(520px, 56vh);
-  width: auto;
-  max-width: min(460px, 86vw);
-  border: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: drop-shadow(0 6px 24px rgba(0,0,0,0.45));
-  animation: logo-fade-in 1.2s var(--ease-out) forwards;
-  user-select: none;
-  pointer-events: none;
-}
-
-@keyframes logo-fade-in {
-  from { opacity: 0; transform: translateY(14px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 /* CTA hero & Tagline */
 .hero-cta-wrap {
   position: relative;
@@ -560,7 +540,6 @@ address { font-style: normal; }
   align-items: center;
   gap: 16px;
   margin-top: 28px;
-  animation: fade-up 0.8s 0.6s var(--ease-out) both;
 }
 
 @keyframes fade-up {
@@ -577,33 +556,6 @@ address { font-style: normal; }
   color: var(--sand);
   opacity: 0.72;
   margin: 0;
-}
-
-.hero-cta {
-  display: inline-block;
-  padding: 13px 38px;
-  border: 1.5px solid rgba(232, 223, 200, 0.45);
-  border-radius: 2px;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--sand);
-  background: rgba(13, 27, 42, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  position: relative;
-  overflow: hidden;
-  transition: all var(--dur-mid) var(--ease-out);
-}
-
-.hero-cta:hover {
-  background: var(--sand);
-  border-color: var(--sand);
-  color: var(--deep);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* ================================================================
@@ -1828,11 +1780,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .header-inner { padding: 0 16px; }
 
   .hero-logo-wrap .boby-logo { width: min(300px, 88vw); }
-  .hero-logo-wrap img,
-  .hero-logo-wrap .hero-logo-img {
-    max-height: min(360px, 46vh);
-    max-width: 82vw;
-  }
 
   .nav-pages-grid { grid-template-columns: 1fr; }
 
@@ -1910,3 +1857,218 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+
+
+/* ================================================================
+   HERO v3.4 — révélation du logo, lumière, poussière dorée
+   Animations : transform / opacity uniquement.
+   ================================================================ */
+.hero-stage {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  padding: calc(var(--header-h) + 8px) 20px 72px;
+  will-change: transform, opacity;
+}
+
+.hero-logo-wrap { perspective: 800px; }
+
+.logo-art {
+  position: relative;
+  width: min(360px, 74vw, calc((100svh - 380px) * 0.6663));
+  min-width: 190px;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,.45));
+  -webkit-user-select: none; user-select: none; pointer-events: none;
+}
+
+.logo-slice { position: relative; overflow: hidden; }
+.logo-slice img {
+  position: absolute; left: 0; width: 100%; height: auto;
+  opacity: 0;
+  animation: slice-in 1.5s var(--ease-out) both;
+}
+.logo-slice--mark { aspect-ratio: 731 / 702; }
+.logo-slice--mark img { top: 0; animation-name: mark-in; animation-duration: 2s; animation-delay: .15s; }
+.logo-slice--name { aspect-ratio: 731 / 115; }
+.logo-slice--name img { top: -610.43%; animation-delay: 1.05s; }
+.logo-slice--type { aspect-ratio: 731 / 88; }
+.logo-slice--type img { top: -928.41%; animation-delay: 1.4s; }
+.logo-slice--sign { aspect-ratio: 731 / 192; }
+.logo-slice--sign img { top: -471.35%; animation-delay: 1.75s; animation-duration: 1.8s; }
+
+@keyframes slice-in {
+  from { opacity: 0; transform: translateY(34%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes mark-in {
+  0%   { opacity: 0; transform: scale(1.07) translateY(6%); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Reflet de lumière qui traverse le logo (limité à sa forme par le masque) */
+.logo-shine {
+  position: absolute; inset: 0; overflow: hidden;
+  -webkit-mask: url("../img/boby-logo-light.png") center / 100% 100% no-repeat;
+          mask: url("../img/boby-logo-light.png") center / 100% 100% no-repeat;
+}
+.logo-shine i {
+  position: absolute; top: -10%; bottom: -10%; left: 0; width: 55%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,246,222,.0) 15%, rgba(255,243,214,.95) 50%, rgba(255,246,222,.0) 85%, transparent 100%);
+  transform: translateX(-130%) skewX(-12deg);
+  animation: shine 8s ease-in-out 3s infinite;
+}
+@keyframes shine {
+  0%   { transform: translateX(-130%) skewX(-12deg); }
+  22%  { transform: translateX(260%)  skewX(-12deg); }
+  100% { transform: translateX(260%)  skewX(-12deg); }
+}
+
+/* Lumière de mer qui dérive derrière le logo */
+.hero-light {
+  position: absolute; z-index: 0; pointer-events: none;
+  border-radius: 50%;
+  will-change: transform;
+}
+.hero-light--a {
+  width: 90vmax; height: 90vmax; left: -30vmax; top: -45vmax;
+  background: radial-gradient(closest-side, rgba(100,159,178,.20), transparent);
+  animation: drift-a 22s ease-in-out infinite alternate;
+}
+.hero-light--b {
+  width: 80vmax; height: 80vmax; right: -35vmax; bottom: -40vmax;
+  background: radial-gradient(closest-side, rgba(200,120,80,.13), transparent);
+  animation: drift-b 26s ease-in-out infinite alternate;
+}
+@keyframes drift-a { to { transform: translate3d(14vmax, 8vmax, 0) scale(1.12); } }
+@keyframes drift-b { to { transform: translate3d(-12vmax, -9vmax, 0) scale(1.1); } }
+
+.hero-motes {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 1; pointer-events: none;
+  opacity: 0; animation: fade-up-plain 2.4s ease-out .6s forwards;
+}
+@keyframes fade-up-plain { to { opacity: 1; } }
+
+/* Boutons */
+.hero-cta-wrap {
+  flex-direction: column; gap: 12px; margin-top: 34px;
+  width: min(320px, 86vw);
+  opacity: 0; animation: fade-up .9s var(--ease-out) 2.2s forwards;
+}
+.hero-cta {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; min-height: 52px; padding: 14px 24px;
+  border: 1.5px solid rgba(232,223,200,.5);
+  border-radius: 2px;
+  font-family: var(--font-body); font-size: .82rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; text-align: center;
+  color: var(--sand);
+  transition: background var(--dur-mid) var(--ease-out), color var(--dur-mid) var(--ease-out), transform var(--dur-mid) var(--ease-out), border-color var(--dur-mid) var(--ease-out);
+}
+.hero-cta--main { background: var(--sand); border-color: var(--sand); color: var(--deep); }
+.hero-cta--main:hover { background: var(--white); transform: translateY(-2px); }
+.hero-cta--call:hover { background: rgba(232,223,200,.1); border-color: var(--sand); transform: translateY(-2px); }
+.hero-cta:focus-visible, .hero-scroll:focus-visible, .mobile-bar-btn:focus-visible {
+  outline: 2px solid var(--sea-light); outline-offset: 3px;
+}
+
+/* Indication de défilement */
+.hero-scroll {
+  position: absolute; z-index: 2; left: 50%; bottom: max(18px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  background: none; border: 0; cursor: pointer; color: var(--sand);
+  padding: 8px 14px;
+  opacity: 0; animation: fade-up-plain 1s ease-out 3s forwards;
+}
+.hero-scroll-label { font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; opacity: .6; }
+.hero-scroll-line { position: relative; width: 1px; height: 38px; background: rgba(232,223,200,.2); overflow: hidden; }
+.hero-scroll-line::after {
+  content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  background: var(--sand);
+  transform: translateY(-100%);
+  animation: scroll-cue 2.2s ease-in-out infinite;
+}
+@keyframes scroll-cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
+}
+
+@media (max-height: 740px) { .hero-scroll { display: none; } }
+
+/* Petits écrans bas (paysage) : on libère la place */
+@media (max-height: 640px) {
+  .logo-art { width: min(240px, 60vw, calc((100svh - 280px) * 0.6663)); }
+  .hero-cta-wrap { flex-direction: row; width: auto; margin-top: 20px; }
+  .hero-cta { width: auto; }
+  .hero-scroll { display: none; }
+}
+
+/* Barre d'actions mobile */
+.mobile-bar { display: none; }
+@media (max-width: 767px) {
+  .mobile-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    padding: 10px 14px max(10px, env(safe-area-inset-bottom));
+    background: rgba(14,27,38,.96);
+    border-top: 1px solid rgba(232,223,200,.14);
+    transform: translateY(110%);
+    transition: transform .5s var(--ease-out);
+  }
+  .mobile-bar.is-visible { transform: translateY(0); }
+  .mobile-bar-btn {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 48px; border-radius: 2px;
+    font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  }
+  .mobile-bar-btn--call { border: 1.5px solid rgba(232,223,200,.5); color: var(--sand); }
+  .mobile-bar-btn--resa { background: var(--rosee); color: var(--deep); border: 1.5px solid var(--rosee); }
+  .site-footer { padding-bottom: 84px; }
+}
+
+/* Apparition au défilement (classes ajoutées par le JS, retirées ensuite) */
+.reveal {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .9s ease-out var(--d, 0ms), transform .9s var(--ease-out) var(--d, 0ms);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-slice img, .hero-cta-wrap, .hero-motes, .hero-scroll { opacity: 1 !important; animation: none !important; transform: none !important; }
+  .logo-slice img { transform: none !important; }
+  .logo-shine, .hero-light, .hero-scroll-line::after { animation: none !important; display: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Burger : calé à droite, zone tactile 44 px */
+.burger-btn { margin-left: auto; width: 44px; height: 44px; padding: 10px; }
+.burger-btn:focus-visible { outline: 2px solid var(--sea-light); outline-offset: 2px; }
+
+/* Titres : interligne resserré (le 1.65 du corps était trop aéré) */
+h1, h2, h3 { line-height: 1.15; }
+
+/* Légendes de la galerie : voile plus net pour rester lisibles sur les photos claires */
+.galerie-caption {
+  background: linear-gradient(to top, rgba(10,20,30,.92) 0%, rgba(10,20,30,.55) 60%, transparent 100%);
+  color: rgba(247,244,236,.95);
+}
+
+/* Avis : carrousel horizontal sur mobile au lieu d'une pile de 40 écrans */
+@media (max-width: 640px) {
+  .reviews-grid-real {
+    display: flex; gap: 14px;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    margin: 0 -16px; padding: 4px 16px 18px;
+    scroll-padding: 0 16px;
+    scrollbar-width: none;
+  }
+  .reviews-grid-real::-webkit-scrollbar { display: none; }
+  .reviews-grid-real > .real-review-card { flex: 0 0 86%; scroll-snap-align: start; }
+}
+
+@media (max-width: 640px) {
+  .google-reviews-section { background: transparent; border: 0; box-shadow: none; padding: 0; }
+  .reviews-grid-real { margin: 0 -24px; padding: 4px 24px 18px; scroll-padding: 0 24px; }
+  .reviews-grid-real > .real-review-card { flex-basis: 82%; }
+}
